@@ -1,4 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect
+# from affirm import return_affirmations 
+
 # import requests
 
 app = Flask(__name__, template_folder='templates')
