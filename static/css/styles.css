@@ -165,7 +165,7 @@ footer {
 }
 
 .feature-heading i {
-    color: #183153;
+    color: rebeccapurple;
     font-size: 1.3rem;
 }
 
@@ -192,10 +192,21 @@ footer {
 
 }
 
+#affirmations-pit-2 {
+    display: none;
+}
+
 .placeholder {
-    font-weight: 500px;
-    color: black;
+    font-weight: 500;
+    opacity: 0.5;
+    color: rebeccapurple;
     /* color: red; */
+}
+
+.affirmation-text {
+    font-weight: 700;
+    opacity: 0.5;
+    color: black;
 }
 
 label {
