@@ -169,8 +169,9 @@ footer {
     font-weight: 700;
 }
 
-.feature-heading {
+.feature-heading i {
     color: #183153;
+    font-size: 1.3rem;
 }
 
 .feature:hover {
