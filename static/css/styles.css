@@ -123,11 +123,6 @@ main {
     /* min-width: 150px; */
 }
 
-form input {
-    /* min-width: 300px; */
-}
-
-
 
 footer {
     text-align: center;
@@ -172,6 +167,10 @@ footer {
     margin: 0rem auto 0.7rem;
     text-transform: capitalize;
     font-weight: 700;
+}
+
+.feature-heading {
+    color: #183153;
 }
 
 .feature:hover {
