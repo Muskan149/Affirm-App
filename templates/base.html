@@ -2,20 +2,30 @@
 <html lang="en">
 
 <head>
+
+    <!-- Google fFonts -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu:wght@300;400;500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="image/x-icon" href="MDB5-STANDARD-UI-KIT-Free-6.3.0/img/mdb-favicon.ico" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <!-- MD Bootstrap and Favicons-->
+    <link rel="stylesheet" href="{{ url_for('static', filename= '/css/mdb.min.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename= '/img/mdb-favicon.ico') }}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://accounts.google.com/gsi/style">
+
+    <!-- My stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename= '/css/styles.css') }}">
+
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     {% block head %}{% endblock %}
     <title>Positive Affirmations</title>
 </head>
@@ -34,9 +44,6 @@
     <main>
         <h1 class="main-content">Affirm</h1>
         <p class="sub-heading">Your friendly, neighbourhood affirmations-generator</p>
-
-
-
         <section id="features">
             <div class="feature">
                 <div class="feature-heading">
@@ -80,19 +87,25 @@
                 <label for="grievance">Enter your grievance: </label>
                 <input type="text" id="grievance" name="grievance" placeholder="ex: school deadlines making me anxious"
                     required>
-                <input type="submit" , value="Generate!">
+                <!-- Generate button -->
+                <a href="#affirmations">
+                    <input type="submit" , value="Generate!" data-mdb-toggle="collapse" data-mdb-target="#text1"
+                        aria-expanded="false" aria-controls="text1">
+                </a>
+
             </form>
         </section>
 
-        {% block body %}{% endblock %}
-
-
+        <section id="affirmations">
+            {% block body %}{% endblock %}
+        </section>
     </main>
     <footer>
         <p>Developed with ❤️ by Muskan</p>
     </footer>
-
-    <script type="text/javascript" src="MDB5-STANDARD-UI-KIT-Free-6.3.0/js/mdb.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

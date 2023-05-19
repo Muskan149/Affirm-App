@@ -19,5 +19,5 @@ def index():
 
 
 if __name__ == "__main__":
-    print("hi")
+    print("running Affirm")
     app.run(debug=True)

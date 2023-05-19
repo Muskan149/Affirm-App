@@ -2,6 +2,7 @@ html {
     scroll-behavior: smooth;
     font-size: 15px;
     height: 100%;
+    scroll-behavior: smooth;
 
 }
 
@@ -196,7 +197,7 @@ footer {
     display: none;
 }
 
-.placeholder {
+.affirmation-placeholder {
     font-weight: 500;
     opacity: 0.5;
     color: rebeccapurple;
@@ -204,9 +205,9 @@ footer {
 }
 
 .affirmation-text {
-    font-weight: 700;
-    opacity: 0.5;
-    color: black;
+    font-weight: 500;
+    /* opacity: 0.5; */
+    color: rebeccapurple;
 }
 
 label {
@@ -214,6 +215,28 @@ label {
     font-weight: 700;
 }
 
+.carousel-control-next,
+.carousel-control-prev {
+    color: rgba(0, 0, 0);
+}
+
+.carousel-indicators {
+    top: 5rem;
+}
+
+.carousel-indicators button {
+    /* position: relative; */
+    margin: 0 5px 0;
+    width: 3%;
+}
+
+.carousel-indicators button:hover {
+    opacity: 0.5;
+}
+
+.carousel-indicators button[class="active"] {
+    opacity: 0.8;
+}
 
 @media only screen and (max-width: 900px) {
     .feature-heading {

@@ -6,73 +6,40 @@
 
 
 {% block body %}
-<section id="affirmations">
+<div id="affirmations-pit">
     {% if visible == true %}
-    <p>hello</p>
-    {% else %}
-    <div id="affirmations-pit">
-        <p class="placeholder">affirmations appear here</p>
-    </div>
-    {% endif %}
-
-    <!-- <div id="affirmations-pit" class="carousel" data-ride="carousel">
-        {% if visible == false %}
-        <p class="placeholder">affirmations appear here</p>
-        {% else %}
+    <div id="affirmationCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <p class="affirmation-text">hello</p>
+                <p class="affirmation-text">{{grievance}} 1</p>
             </div>
             <div class="carousel-item">
-                <p class="affirmation-text">hello</p>
+                <p class="affirmation-text">{{grievance}} 2</p>
             </div>
             <div class="carousel-item">
-                <p class="affirmation-text">hello</p>
+                <p class="affirmation-text">{{grievance}} 3</p>
             </div>
         </div>
-        {% endif %}
-        <a class="carousel-control-prev" href="#affirmations" role="button" data-slide="prev">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#affirmationCarousel" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#affirmationCarousel" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#affirmationCarousel" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#affirmationCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#affirmations" role="button" data-slide="next">
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#affirmationCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div> -->
-</section>
-
-
-<!-- <div id="affirmations-pit">
-        {% if visible == false %}
-        <p class="placeholder">affirmations appear here</p>
-        {% else %}
-        <p class="affirmation-text">{{grievance}}</p>
-        {% endif %} -->
-
-<!-- <div id="affirmations-pit" class="carousel" data-ride="carousel">
-    {% if visible == false %}
-    <p class="placeholder">affirmations appear here</p>
-    {% else %}
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <p class="affirmation-text">{{grievance}}</p>
-        </div>
-        <div class="carousel-item">
-            <p class="affirmation-text">{{grievance}}</p>
-        </div>
-        <div class="carousel-item">
-            <p class="affirmation-text">{{grievance}}</p>
-        </div>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div> -->
+    {% else %}
+    <p class="affirmation-placeholder">affirmations appear here</p>
+</div>
+{% endif %}
 
 {% endblock %}
