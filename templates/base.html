@@ -32,74 +32,22 @@
 
 <body>
     <header>
-        <h2>Affirm</h2>
+        <a href="#">
+            <h2 class="bold-700 non-animated-gradient">Affirm</h2>
+        </a>
         <nav>
             <ul>
                 <li><a href="#affirmations-generator">Use</a></li>
                 <li><a href="#features">How it works</a></li>
                 <li><a href="mailto: muskanmahajan2004@gmail.com">Contact</a></li>
+                <li><button class="sign-in-register">Sign-In/Register</button></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <h1 class="main-content">Affirm</h1>
-        <p class="sub-heading">Your friendly, neighbourhood affirmations-generator</p>
-        <section id="features">
-            <div class="feature">
-                <div class="feature-heading">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                    About Affirm
-                </div>
-                <div class="feature-content">
-                    <p>Heartbreaks? Setbacks? Failure?
-                        Life-ing is hard.
-                        Affirm helps you power
-                        through the
-                        hurdles of life by generating empowering affirmations.</p>
-                </div>
-            </div>
-            <div class="feature">
-                <div class="feature-heading">
-                    <i class="fa-solid fa-gears"></i>
-                    How it works
-                </div>
-                <div class="feature-content">
-                    <p>Affirm uses the latest Natural Language Processing techniques to generate
-                        affirmations.
-                        Just type in your grievance and let affirm work its magic!</p>
+    <main>{% block body %}{% endblock %}</main>
 
-                </div>
-            </div>
-            <div class="feature">
-                <div class="feature-heading">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    Note
-                </div>
-                <div class="feature-content">
-                    <p>The generator may occasionally produce incorrect/biased content.
-                        Affirm does not claim to be a substitute for professional mental health services.
-                        Contact us for providing feedback!</p>
-                </div>
-            </div>
-        </section>
-        <section id="affirmations-generator" class="main-content">
-            <form action="/" method="POST">
-                <label for="grievance">Enter your grievance: </label>
-                <input type="text" id="grievance" name="grievance" placeholder="ex: school deadlines making me anxious"
-                    required>
-                <!-- Generate button -->
-                <a href="#affirmations">
-                    <input type="submit" , value="Generate!" data-mdb-toggle="collapse" data-mdb-target="#text1"
-                        aria-expanded="false" aria-controls="text1">
-                </a>
 
-            </form>
-        </section>
 
-        <section id="affirmations">
-            {% block body %}{% endblock %}
-        </section>
-    </main>
     <footer>
         <p>Developed with ❤️ by Muskan</p>
     </footer>
@@ -109,3 +57,31 @@
 </body>
 
 </html>
+
+{#
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+#}
