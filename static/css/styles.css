@@ -1,9 +1,13 @@
 html {
     scroll-behavior: smooth;
-    font-size: 16px;
+    font-size: 15px;
     height: 100%;
     scroll-behavior: smooth;
 
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
 }
 
 * {
@@ -20,28 +24,11 @@ html {
 
 h1,
 h2,
-h3 {
+h3, 
+label, 
+.feature-heading {
     line-height: unset;
-}
-
-.non-animated-gradient {
-
-    /* Create the gradient. */
-    background: linear-gradient(to right,
-            /* #887ba7, */
-            rgb(78, 1, 105) 40%,
-            rgb(78, 1, 105, 0.4));
-    background-size: 200% 200%;
-    /* animation: backgroundChange6 4s ease infinite alternate; */
-
-    /* Use the text as a mask for the background. */
-    /* This will show the gradient as a text color rather than element bg. */
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-background-clip: text;
-    -moz-text-fill-color: transparent;
-
+    font-family: 'Pangolin', sans-serif;
 }
 
 
@@ -102,8 +89,9 @@ header {
     width: 100vw;
     /* position: sticky;
     top: 0; */
-    padding: 1.5rem 5rem;
+    padding: 1.5rem 5rem 0.5rem 5rem;
     color: #000;
+    margin-bottom: 1rem;
 }
 
 
@@ -123,34 +111,29 @@ nav ul {
     gap: 1.5rem;
     list-style: none;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin: 0 !important;
 
 }
 
 
 nav a:hover {
     color: rebeccapurple;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
-nav button {
-    font-size: 1rem;
-    /* font-weight: unset; */
-    outline: none;
-    border: none;
-    background-color: rebeccapurple;
-    color: white;
-    border-radius: 6px;
-    padding: 0.5rem;
-
-}
 
 body {
     min-height: 100vh;
-    /* position: relative; */
-
 }
 
+.heading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 0.2rem;
+}
 
 .hero-heading {
     font-size: 3rem;
@@ -158,7 +141,7 @@ body {
 }
 
 .hero-sub-heading {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: black;
 }
@@ -168,44 +151,42 @@ input[type="submit"] {
     display: block;
     outline: none;
     width: 30%;
-    min-width: 450px;
-
+    min-width: 400px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
 }
 
 
 input[type="text"] {
-    margin: 0.4rem auto 0.5rem;
+    margin: 0.5rem auto 0.4rem;
     background-color: var(--main-box-color);
-    padding: 0.5rem 1.5rem;
-    border-radius: 6px;
     border: 1px solid grey;
-    /* font-size: 0.85rem; */
 }
 
 input[type="submit"] {
-    /* font-size: 1rem; */
-    display: block;
-    outline: none;
-    width: 30%;
-    border-radius: 6px;
     margin: 0.25rem auto 0.25rem;
-    padding: 0.5rem 1.25rem;
-    background-color: black;
-    background-color: rebeccapurple;
-    border: 1px solid black;
-    width: 30%;
+    background-color: rgb(102, 51, 153, 0.95);
+    /* border: 1px solid rgb(43, 21, 66); */
+    border-color: rgb(43, 21, 66);
     color: #f0ffff;
 }
+
+input[type="submit"]:hover {
+    background-color: rgb(102, 51, 153);
+    transition: 5ms;
+}
+
+
 
 main {
     text-align: center;
     width: 80%;
-    min-width: 500px;
+    min-width: 450px;
     margin: auto;
-    padding: 1.5rem 0rem;
     display: flex;
     flex-direction: column;
-    gap: 2.25rem;
+    gap: 2rem;
     margin-bottom: 3rem;
 }
 
@@ -224,14 +205,14 @@ footer {
 #features {
     display: flex;
     flex-direction: row;
-    gap: 3rem;
+    gap: 2rem;
     justify-content: center;
     /* margin-top: 2rem; */
 }
 
 .feature {
     width: 25%;
-    min-width: 200px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -244,15 +225,15 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    font-size: 1.2rem;
-    margin: 0rem auto 0.7rem;
+    font-size: 1rem;
+    margin: 0rem auto 0.5rem;
     color: black;
     font-weight: 700;
 }
 
 
 .feature-heading i {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: rebeccapurple;
     /* color: black; */
     /* -webkit-background-clip: text;
@@ -262,13 +243,20 @@ footer {
 .feature-content {
     background-color: var(--main-box-color);
     border-radius: 0.25rem;
-    padding: 2rem 2rem 1.5rem;
+    padding: 1.25rem 1.25rem 1.5rem;
     box-shadow: 0px 0px 5px #ccc;
     height: calc(100% - 5.5rem);
-    font-size: 1.1rem;
+    font-size: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.feature-content p {
+    margin: 0;
+
+
 }
 
 .feature:hover {
@@ -278,7 +266,7 @@ footer {
 
 
 #affirmations-generator {
-    margin: 1.5rem auto 0rem;
+    margin: 1rem auto 0rem;
     width: 100%;
     /* min-width: 150px; */
 }
@@ -291,12 +279,8 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
 
-#affirmations-pit-2 {
-    display: none;
-}
 
 .affirmation-placeholder {
     font-weight: 500;
@@ -306,14 +290,13 @@ footer {
 
 .affirmation-text {
     font-weight: 500;
-    /* opacity: 0.5; */
     color: #4e0169;
 }
 
 label {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
-    line-height: 1.8;
+    /* line-height: 1.5; */
     color: #000
 }
 
@@ -352,8 +335,13 @@ label {
         align-items: center;
     }
 
-    .feature {
-        width: 85%;
+    .feature,
+    .hero-sub-heading {
+        width: 75%;
+    }
+
+    .hero-sub-heading {
+        line-height: 1.5;
     }
 
     /* TODO: Add hamburger here*/
@@ -372,13 +360,7 @@ label {
     }
 } */
 
-.heading-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem
-}
+
 
 @keyframes backgroundChange6 {
     0% {
@@ -402,4 +384,10 @@ h1,
 h2,
 h3 {
     margin: unset;
+}
+
+
+#spinner {
+    font-size: 2rem;
+    display: none;
 }

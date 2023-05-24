@@ -6,114 +6,126 @@
 
 
 {% block body %}
-    <div class="heading-container">
-        <h1 class="hero-heading bold-700 non-animated-gradient">Affirm</h1>
-        <h3 class="hero-sub-heading bold-700 animated-gradient-2">Your friendly, neighbourhood
-            affirmations-generator</h3>
+<div class="heading-container">
+    <h1 class="hero-heading bold-700 non-animated-gradient">
+        Affirm
+    </h1>
+    <h3 class="hero-sub-heading bold-700 animated-gradient-2">Your friendly, neighbourhood
+        affirmations-generator</h3>
+</div>
+<section id="features">
+    <div class="feature">
+        <div class="feature-heading">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+            About Affirm
+        </div>
+        <div class="feature-content">
+            <p>Heartbreaks? Setbacks? Failure?
+                Life-ing is hard.
+                Affirm helps you power
+                through life's hurdles by generating empowering affirmations.</p>
+        </div>
     </div>
-    <section id="features">
-        <div class="feature">
-            <div class="feature-heading">
-                <i class="fa-solid fa-hand-holding-heart"></i>
-                About Affirm
-            </div>
-            <div class="feature-content">
-                <p>Heartbreaks? Setbacks? Failure?
-                    Life-ing is hard.
-                    Affirm helps you power
-                    through life's hurdles by generating empowering affirmations.</p>
-            </div>
+    <div class="feature">
+        <div class="feature-heading bold-700">
+            <i class="fa-solid fa-gears"></i>
+            How it works
         </div>
-        <div class="feature">
-            <div class="feature-heading bold-700">
-                <i class="fa-solid fa-gears"></i>
-                How it works
-            </div>
-            <div class="feature-content">
-                <p>Affirm uses the latest Natural Language Processing technology to generate
-                    affirmations.
-                    Just type in your grievance and let affirm work its magic!</p>
+        <div class="feature-content">
+            <p>Affirm uses the latest Natural Language Processing technology to generate
+                affirmations.
+                Just type in your grievance and let affirm work its magic!</p>
 
-            </div>
         </div>
-        <div class="feature">
-            <div class="feature-heading bold-700">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                Note
-            </div>
-            <div class="feature-content">
-                <p>The generator may occasionally produce incorrect/biased content.
-                    Affirm does not claim to be a substitute for professional mental health services.
-                    Contact us for providing feedback!</p>
-            </div>
+    </div>
+    <div class="feature">
+        <div class="feature-heading bold-700">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Note
         </div>
-    </section>
-    <section id="affirmations-generator" class="main-content">
-        <form action="/" method="POST">
-            <label for="grievance">Enter your grievance: </label>
-            {% if visible %}
-            <input type="text" id="grievance" name="grievance" value="{{grievance}}" required>
-            {% else %}
-            <input type="text" id="grievance" name="grievance" placeholder="ex: school deadlines making me anxious"
-                required>
-            {% endif %}
-
-            <!-- Generate button -->
-            {% if visible %}
-            <input type="submit" , value="Generate!" data-mdb-toggle="collapse" data-mdb-target="#text1"
-                aria-expanded="false" aria-controls="text1">
-            {% else %}
-            <input type="submit" , value="Sign-In/Register" data-mdb-toggle="collapse" data-mdb-target="#text1"
-                aria-expanded="false" aria-controls="text1">
-            {% endif %}
-
-
-        </form>
-    </section>
-    <section id="affirmations">
-
-        {% if visible == true %}
-        <div id="affirmations-pit">
-            <div id="affirmationCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <p class="affirmation-text">{{grievance}} 1</p>
-                    </div>
-                    <div class="carousel-item">
-                        <p class="affirmation-text">{{grievance}} 2</p>
-                    </div>
-                    <div class="carousel-item">
-                        <p class="affirmation-text">{{grievance}} 3</p>
-                    </div>
-                </div>
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#affirmationCarousel" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#affirmationCarousel" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#affirmationCarousel" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#affirmationCarousel"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#affirmationCarousel"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+        <div class="feature-content">
+            <p>The generator may occasionally produce incorrect/biased content.
+                Affirm does not claim to be a substitute for professional mental health services.
+                Contact us for providing feedback!</p>
         </div>
-
+    </div>
+</section>
+<section id="affirmations-generator" class="main-content">
+    <form action="/" method="POST">
+        <label for="grievance">Enter your grievance: </label>
+        {% if flashMessage %}
+        <input type="text" id="grievance" name="grievance" value="{{grievance}}" required>
         {% else %}
-        {#
-        <p class="affirmation-placeholder">affirmations appear here</p>
-        #}
-
+        <input type="text" id="grievance" name="grievance" placeholder="ex: school deadlines making me anxious"
+            required>
         {% endif %}
-    </section>
+        <!-- Generate button -->
+        <input type="submit" , value="Generate!" , onClick="tester();">
+    </form>
+</section>
+<section id="affirmations">
+    <p class="affirmation-text"><i id="spinner" class="fas fa-spinner fa-pulse"></i></p>
+    {% if flashMessage %}
+    <div id="affirmations-pit">
+        <div id="affirmationCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <p class="affirmation-text">{{affirmations[0]}} 1</p>
+                </div>
+                <div class="carousel-item">
+                    <p class="affirmation-text">{{affirmations[1]}} 2</p>
+                </div>
+                <div class="carousel-item">
+                    <p class="affirmation-text">{{affirmations[2]}} 3</p>
+                </div>
+            </div>
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#affirmationCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#affirmationCarousel" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#affirmationCarousel" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#affirmationCarousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#affirmationCarousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    {% endif %}
+</section>
+{% block script %}
+<script>
+    var affirmationsPit = document.getElementById("affirmations-pit");
+    if ("{{requestPosted}}" == "True") {
+        document.getElementById("spinner").style.display = "none";
+        affirmationsPit.style.display = "flex";
+        affirmationsPit.scrollIntoView();
+        console.log(4);
+    }
+
+    function tester() {
+        var affirmationsPit = document.getElementById("affirmations-pit");
+        var loadingIcon = document.getElementById("spinner")
+        // var loadingIcon = document.getElementsByClassName("tester")[0]
+        if (!(document.getElementById("grievance").value === "")) {
+            loadingIcon.style.display = "block";
+            affirmationsPit.style.display = "none";
+            console.log("tester finished exiting");
+        } else {
+            console.log("went to else");
+        }
+    }
+</script>
+{% endblock %}
+
 
 
 {% endblock %}

@@ -7,8 +7,6 @@ _ = load_dotenv(find_dotenv())  # read local .env file
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-print(openai.api_key)
-
 
 def get_completion(prompt, model="gpt-3.5-turbo"):
     messages = [{"role": "user", "content": prompt}]
@@ -40,5 +38,5 @@ def return_affirmations(grievance):
     return three_affirmations
 
 
-affirmations_list = return_affirmations(
-    "I am suffering from exam related anxiety")
+# print(return_affirmations("My gym crush rejected me"))
+# print(openai.api_key)
