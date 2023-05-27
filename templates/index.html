@@ -2,23 +2,28 @@
 
 
 {% block head %}
+<style>
+    /* Tooltip container */
+</style>
 {% endblock %}
 
 
 {% block body %}
+
 <div class="heading-container">
-    <h1 class="hero-heading bold-700 non-animated-gradient">
+    <h1 class="hero-heading bold-700">
         Affirm
     </h1>
-    <h3 class="hero-sub-heading bold-700 animated-gradient-2">Your friendly, neighbourhood
-        affirmations-generator</h3>
+    <h2 class="hero-sub-heading bold-700 animated-gradient-2">Your friendly, neighbourhood
+        positive affirmations-generator
+    </h2>
 </div>
 <section id="features">
     <div class="feature">
-        <div class="feature-heading">
-            <i class="fa-solid fa-hand-holding-heart"></i>
+        <h3 class="feature-heading">
+            <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
             About Affirm
-        </div>
+        </h3>
         <div class="feature-content">
             <p>Heartbreaks? Setbacks? Failure?
                 Life-ing is hard.
@@ -27,26 +32,27 @@
         </div>
     </div>
     <div class="feature">
-        <div class="feature-heading bold-700">
-            <i class="fa-solid fa-gears"></i>
+        <h3 class="feature-heading bold-700">
+            <i class="fa-solid fa-gears" aria-hidden="true"></i>
             How it works
-        </div>
+        </h3>
         <div class="feature-content">
-            <p>Affirm uses the latest Natural Language Processing technology to generate
+            <p>Affirm uses the latest Natural Language Processing techniques to generate
                 affirmations.
-                Just type in your grievance and let affirm work its magic!</p>
+                Just type in your grievance and let Affirm work its magic!</p>
 
         </div>
     </div>
     <div class="feature">
-        <div class="feature-heading bold-700">
-            <i class="fa-solid fa-triangle-exclamation"></i>
+        <h3 class="feature-heading">
+            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
             Note
-        </div>
+        </h3>
         <div class="feature-content">
             <p>The generator may occasionally produce incorrect/biased content.
-                Affirm does not claim to be a substitute for professional mental health services.
-                Contact us for providing feedback!</p>
+                Affirm is not a substitute for professional mental health services.
+                Feedback? Contact Us!
+            </p>
         </div>
     </div>
 </section>
@@ -60,23 +66,26 @@
             required>
         {% endif %}
         <!-- Generate button -->
-        <input type="submit" , value="Generate!" , onClick="tester();">
+        <input type="submit" , value="Generate!" , onClick="submitClicked();">
     </form>
 </section>
 <section id="affirmations">
-    <p class="affirmation-text"><i id="spinner" class="fas fa-spinner fa-pulse"></i></p>
+    <div class="spinner">
+        <i id="spinner" class="fas fa-spinner fa-pulse" title="Please wait, generating Response" aria-hidden="true"></i>
+        <span class="fa-sr-only">Please wait, generating the affirmations.</span>
+    </div>
     {% if flashMessage %}
     <div id="affirmations-pit">
         <div id="affirmationCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <p class="affirmation-text">{{affirmations[0]}} 1</p>
+                    <p class="affirmation-text">{{affirmations[0]}}</p>
                 </div>
                 <div class="carousel-item">
-                    <p class="affirmation-text">{{affirmations[1]}} 2</p>
+                    <p class="affirmation-text">{{affirmations[1]}}</p>
                 </div>
                 <div class="carousel-item">
-                    <p class="affirmation-text">{{affirmations[2]}} 3</p>
+                    <p class="affirmation-text">{{affirmations[2]}}</p>
                 </div>
             </div>
             <div class="carousel-indicators">
@@ -101,31 +110,47 @@
     </div>
     {% endif %}
 </section>
+{#
+<div class="accordion" id="FAQwhatAreAffirmations">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                What are affirmations?
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+            data-bs-parent="#FAQwhatAreAffirmations">
+            <div class="accordion-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+#}
+
 {% block script %}
 <script>
-    var affirmationsPit = document.getElementById("affirmations-pit");
-    if ("{{requestPosted}}" == "True") {
-        document.getElementById("spinner").style.display = "none";
-        affirmationsPit.style.display = "flex";
-        affirmationsPit.scrollIntoView();
-        console.log(4);
-    }
-
-    function tester() {
+    // when the submit button is clicked
+    function submitClicked() {
         var affirmationsPit = document.getElementById("affirmations-pit");
         var loadingIcon = document.getElementById("spinner")
         // var loadingIcon = document.getElementsByClassName("tester")[0]
         if (!(document.getElementById("grievance").value === "")) {
             loadingIcon.style.display = "block";
             affirmationsPit.style.display = "none";
-            console.log("tester finished exiting");
-        } else {
-            console.log("went to else");
         }
     }
+
+    var affirmationsPit = document.getElementById("affirmations-pit");
+    // returning the affirmations -> remove the spinner and bring the pit into view
+    if ("{{requestPosted}}" == "True") {
+        document.getElementById("spinner").style.display = "none";
+        affirmationsPit.style.display = "flex";
+        affirmationsPit.scrollIntoView();
+    }
+
+
 </script>
 {% endblock %}
-
-
-
 {% endblock %}

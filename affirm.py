@@ -8,17 +8,17 @@ _ = load_dotenv(find_dotenv())  # read local .env file
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 
-def get_completion(prompt, model="gpt-3.5-turbo"):
+def get_completion(prompt, model="gpt-3.5-turbo", temperature=0):
     messages = [{"role": "user", "content": prompt}]
     response = openai.ChatCompletion.create(
         model=model,
         messages=messages,
-        temperature=0,  # this is the degree of randomness of the model's output
+        temperature=temperature,  # this is the degree of randomness of the model's output
     )
     return response.choices[0].message["content"]
 
 
-def return_affirmations(grievance):
+def return_affirmations(grievance, temperature=0.1):
     PROMPT = f"""
     You are a positive affirmations generator. Your task is to generate positive, credible, and achievable \ 
     affirmation statements that will help alleviate the user's problems/grievances.
@@ -31,12 +31,8 @@ def return_affirmations(grievance):
 
     Generate the  affirmations  in the JSON format with the key "affirmations"."""
 
-    response = get_completion(PROMPT)
+    response = get_completion(PROMPT, temperature=temperature)
     response_dict = json.loads(response)
     three_affirmations = response_dict["affirmations"]
 
     return three_affirmations
-
-
-# print(return_affirmations("My gym crush rejected me"))
-# print(openai.api_key)
