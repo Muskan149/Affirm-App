@@ -1,3 +1,13 @@
 .env
 __pycache__
 affDB.db-journal
+static/css/mdb.dark.min.css
+.gitignore
+static/css/mdb.dark.rtl.min.css
+.gitignore
+static/css/mdb.dark.rtl.min.css.map
+static/css/mdb.rtl.min.css
+static/css/mdb.dark.min.css.map
+static/css/mdb.rtl.min.css.map
+.DS_Store
+.DS_Store

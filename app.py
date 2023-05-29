@@ -38,8 +38,7 @@ def index():
     if request.method == 'POST':
         requestPosted = True
         grievance = request.form['grievance']
-        affirmations = [grievance, grievance, grievance]
-        # affirmations = return_affirmations(grievance)
+        affirmations = return_affirmations(grievance)
         new_session = AffirmationGenerator(
             grievance=grievance,
             affirmation_1=affirmations[0],
