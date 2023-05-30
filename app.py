@@ -1,5 +1,4 @@
 from flask import Flask, render_template, url_for, request, redirect
-from flask_migrate import Migrate
 import os
 from flask_sqlalchemy import SQLAlchemy
 
@@ -7,31 +6,12 @@ from sqlalchemy.sql import func
 
 from time import sleep
 from affirm import return_affirmations
-import psycopg2
 
 
 app = Flask(__name__, template_folder='templates')
 
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
-# con = psycopg2.connect(DATABASE_URL)
-# cur = con.cursor()
-
-# db = SQLAlchemy(app)
-# migrate = Migrate(app, db)
-
-
-# Create the AffirmationGenerator table
-# table_create_query = """
-#     CREATE TABLE AffirmationGenerator (
-#         ID SERIAL PRIMARY KEY,
-#         grievance TEXT,
-#         affirmation_1 TEXT,
-#         affirmation_2 TEXT,
-#         affirmation_3 TEXT,
-#         created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
-#     );
-# """
 
 
 @app.route("/", methods=["POST", "GET"])
