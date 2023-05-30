@@ -11,21 +11,21 @@ app = Flask(__name__, template_folder='templates')
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-app.config['SQLALCHEMY_DATABASE_URI'] ='postgres://ckhujrdmpferqb:2705aba81a2cd017cebcf7fccd287660331016650776310ee86d65efa43a8d0a@ec2-3-208-74-199.compute-1.amazonaws.com:5432/d6gvklrdds9kho'
-db = SQLAlchemy(app)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ckhujrdmpferqb:2705aba81a2cd017cebcf7fccd287660331016650776310ee86d65efa43a8d0a@ec2-3-208-74-199.compute-1.amazonaws.com:5432/d6gvklrdds9kho'
+# db = SQLAlchemy(app)
 
 
-class AffirmationGenerator(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    grievance = db.Column(db.String(300), nullable=False)
-    affirmation_1 = db.Column(db.String(300), nullable=False)
-    affirmation_2 = db.Column(db.String(300), nullable=False)
-    affirmation_3 = db.Column(db.String(300), nullable=False)
-    created_at = db.Column(db.DateTime(timezone=True),
-                           server_default=func.now())
+# class AffirmationGenerator(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     grievance = db.Column(db.String(300), nullable=False)
+#     affirmation_1 = db.Column(db.String(300), nullable=False)
+#     affirmation_2 = db.Column(db.String(300), nullable=False)
+#     affirmation_3 = db.Column(db.String(300), nullable=False)
+#     created_at = db.Column(db.DateTime(timezone=True),
+#                            server_default=func.now())
 
-    def __repr__(self):
-        return f'<Affirmations: {self.affirmation}>'
+#     def __repr__(self):
+#         return f'<Affirmations: {self.affirmation}>'
 
 
 @app.route("/", methods=["POST", "GET"])
@@ -38,20 +38,20 @@ def index():
         requestPosted = True
         grievance = request.form['grievance']
         affirmations = return_affirmations(grievance)
-        new_session = AffirmationGenerator(
-            grievance=grievance,
-            affirmation_1=affirmations[0],
-            affirmation_2=affirmations[1],
-            affirmation_3=affirmations[2]
-        )
-        flashMessage = True
+        # new_session = AffirmationGenerator(
+        #     grievance=grievance,
+        #     affirmation_1=affirmations[0],
+        #     affirmation_2=affirmations[1],
+        #     affirmation_3=affirmations[2]
+        # )
+        # flashMessage = True
 
-        try:
-            print("committing to DB..")
-            db.session.add(new_session)
-            db.session.commit()
-        except:
-            print("failed")
+        # try:
+        #     print("committing to DB..")
+        #     db.session.add(new_session)
+        #     db.session.commit()
+        # except:
+        #     print("failed")
 
     return render_template("index.html", grievance=grievance, affirmations=affirmations, flashMessage=flashMessage, requestPosted=requestPosted)
 
