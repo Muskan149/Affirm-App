@@ -47,7 +47,7 @@ def index():
         #     affirmation_2=affirmations[1],
         #     affirmation_3=affirmations[2]
         # )
-        # flashMessage = True
+        flashMessage = True
 
         # try:
         #     print("committing to DB..")
