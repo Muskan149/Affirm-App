@@ -14,24 +14,24 @@ app = Flask(__name__, template_folder='templates')
 
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
-con = psycopg2.connect(DATABASE_URL)
-cur = con.cursor()
+# con = psycopg2.connect(DATABASE_URL)
+# cur = con.cursor()
 
 # db = SQLAlchemy(app)
 # migrate = Migrate(app, db)
 
 
 # Create the AffirmationGenerator table
-table_create_query = """
-    CREATE TABLE AffirmationGenerator (
-        ID SERIAL PRIMARY KEY,
-        grievance TEXT,
-        affirmation_1 TEXT,
-        affirmation_2 TEXT,
-        affirmation_3 TEXT,
-        created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
-    );
-"""
+# table_create_query = """
+#     CREATE TABLE AffirmationGenerator (
+#         ID SERIAL PRIMARY KEY,
+#         grievance TEXT,
+#         affirmation_1 TEXT,
+#         affirmation_2 TEXT,
+#         affirmation_3 TEXT,
+#         created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+#     );
+# """
 
 
 @app.route("/", methods=["POST", "GET"])
