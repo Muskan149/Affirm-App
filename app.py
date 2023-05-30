@@ -9,7 +9,7 @@ from affirm import return_affirmations
 
 app = Flask(__name__, template_folder='templates')
 
-basedir = os.path.abspath(os.path.dirname(__file__))
+# basedir = os.path.abspath(os.path.dirname(__file__))
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ckhujrdmpferqb:2705aba81a2cd017cebcf7fccd287660331016650776310ee86d65efa43a8d0a@ec2-3-208-74-199.compute-1.amazonaws.com:5432/d6gvklrdds9kho'
 # db = SQLAlchemy(app)
@@ -37,7 +37,10 @@ def index():
     if request.method == 'POST':
         requestPosted = True
         grievance = request.form['grievance']
-        affirmations = return_affirmations(grievance)
+
+        # affirmations = return_affirmations(grievance)
+        affirmations = [grievance, grievance, grievance]
+
         # new_session = AffirmationGenerator(
         #     grievance=grievance,
         #     affirmation_1=affirmations[0],

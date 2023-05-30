@@ -5,7 +5,7 @@ import json
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())  # read local .env file
 
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = os.getenv('OPENAI_API_KEY', 23)
 
 
 def get_completion(prompt, model="gpt-3.5-turbo", temperature=0):
