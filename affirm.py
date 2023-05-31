@@ -18,7 +18,7 @@ def get_completion(prompt, model="gpt-3.5-turbo", temperature=0):
     return response.choices[0].message["content"]
 
 
-def return_affirmations(grievance, temperature=0.2):
+def return_affirmations(grievance, temperature=0.15):
     PROMPT = f"""
     You are a positive affirmations generator. Your task is to generate positive, credible, and achievable \ 
     affirmation statements that will help alleviate the user's problems/grievances.
