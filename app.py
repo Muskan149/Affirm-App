@@ -11,7 +11,7 @@ from affirm import return_affirmations
 app = Flask(__name__, template_folder='templates')
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
-TEMPERATURE = 0.7
+TEMPERATURE = 0.5
 
 
 @app.route("/", methods=["POST", "GET"])
