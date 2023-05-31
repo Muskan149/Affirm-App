@@ -60,10 +60,10 @@
     <form action="/" method="POST">
         <label for="grievance">Enter your grievance: </label>
         {% if flashMessage %}
-        <input type="text" id="grievance" name="grievance" value="{{grievance}}" required>
+        <input type="text" id="grievance" name="grievance" value="{{grievance}}" autocomplete="off" required>
         {% else %}
         <input type="text" id="grievance" name="grievance" placeholder="ex: school deadlines making me anxious"
-            required>
+            autocomplete="off" required>
         {% endif %}
         <!-- Generate button -->
         <input type="submit" , value="Generate!" , onClick="submitClicked();">
