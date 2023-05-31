@@ -80,8 +80,10 @@ input {
             /* #887ba7, */
             rgb(73, 1, 99) 0% 10%,
             rgb(200, 82, 200),
+            rgb(239, 117, 156),
             #490163 80% 90%,
-            rgb(200, 82, 200));
+            rgb(200, 82, 200),
+            rgb(239, 117, 156));
 
     background-size: 300% 300%;
     animation: backgroundChange6 2s ease infinite alternate;
