@@ -12,3 +12,4 @@ static/css/mdb.rtl.min.css.map
 .DS_Store
 .DS_Store
 .env
+retrieve_data.py
