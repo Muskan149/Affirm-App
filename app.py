@@ -11,7 +11,7 @@ from affirm import return_affirmations
 app = Flask(__name__, template_folder='templates')
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
-TEMPERATURE = 0.8
+TEMPERATURE = 0.7
 
 
 @app.route("/", methods=["POST", "GET"])
@@ -24,7 +24,7 @@ def index():
         requestPosted = True
         grievance = request.form['grievance']
 
-        affirmations = return_affirmations(grievance, TEMPERATURE)
+        affirmations = return_affirmations(grievance.lower().strip(), TEMPERATURE)
         # affirmations = [grievance, grievance, grievance]
 
         # new_session = AffirmationGenerator(
