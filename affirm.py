@@ -27,6 +27,9 @@ def return_affirmations(grievance, temperature=0.15):
     for mitigating the user's grievance. The affirmations should not be arbitrary; \
     they should be specific to the user's grievance.
 
+    The affirmations should invoke the following emotions, wherever relevant: self-love, self-confidence, \
+        healing, grit, positivity and happiness.
+
     Here is the user's grievance, delimited by three backticks: ```{grievance}```
 
     Generate the  affirmations  in the JSON format with the key "affirmations"."""
