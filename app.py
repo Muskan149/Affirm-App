@@ -24,8 +24,8 @@ def index():
         requestPosted = True
         grievance = request.form['grievance']
 
-        # affirmations = return_affirmations(grievance)
-        affirmations = [grievance, grievance, grievance]
+        affirmations = return_affirmations(grievance)
+        # affirmations = [grievance, grievance, grievance]
 
         # new_session = AffirmationGenerator(
         #     grievance=grievance,
