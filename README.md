@@ -2,7 +2,7 @@
 
 Affirm is a positive affirmations generator powered by GPT-3.5. It’s designed to help users create personalized, uplifting affirmations that promote confidence, self-love, and motivation.
 
-Check out the live version of Affirm on Product Hunt: [Affirm on Product Hunt](https://www.producthunt.com/products/affirm-4) ✨💐
+Check out the demo of Affirm on Product Hunt: [Affirm on Product Hunt](https://www.producthunt.com/products/affirm-4) ✨💐
 
 **Used by over 400+ users to generate 600+ positive messages. Featured on Product Hunt!**
 
